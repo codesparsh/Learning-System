@@ -1,0 +1,245 @@
+<main>
+	<section id="hero_in" class="courses">
+		<div class="wrapper">
+			<div class="container">
+				<h1 class="fadeInUp"><span></span>Online course detail</h1>
+			</div>
+		</div>
+	</section>
+	<!--/hero_in-->
+
+	<div class="bg_color_1">
+		<nav class="secondary_nav sticky_horizontal">
+			<div class="container">
+				<ul class="clearfix">
+					<li><a href="#description" class="active">Description</a></li>
+					<li><a href="#lessons">Lessons</a></li>
+					<li><a href="#reviews">Reviews</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container margin_60_35">
+			<div class="row">
+				<div class="col-lg-8">
+					
+					<section id="description">
+						<h2>Description</h2>
+						<p><%= course.courseDescription %></p>
+						<h5>What will you learn</h5>
+						<ul class="list_ok">
+						<% for(var i=0;i<=course.itemTitle.length-1;i++) {%> 
+							<li>
+								<h6><%= course.itemTitle[i] %></h6>
+								<p><%= course.itemDescription %> </p>
+							</li>
+						<% } %> 
+						</ul>
+						<!-- <p>Mea appareat omittantur eloquentiam ad, nam ei quas oportere democritum. Prima causae admodum id est, ei timeam inimicus sed. Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
+						<div class="row">
+							<div class="col-lg-6">
+								<ul class="bullets">
+									<li>Dolorem mediocritatem</li>
+									<li>Mea appareat</li>
+									<li>Prima causae</li>
+									<li>Singulis indoctum</li>
+								</ul>
+							</div>
+							<div class="col-lg-6">
+								<ul class="bullets">
+									<li>Timeam inimicus</li>
+									<li>Oportere democritum</li>
+									<li>Cetero inermis</li>
+									<li>Pertinacia eum</li>
+								</ul>
+							</div>
+						</div> -->
+						<!-- /row -->
+					</section>
+					<!-- /section -->
+					
+					<section id="lessons">
+						<div class="intro_title">
+							<h2>Lessons</h2>
+							<ul>
+								<li>18 lessons</li>
+								<li>01:02:10</li>
+							</ul>
+						</div>
+						<div id="accordion_lessons" role="tablist" class="add_bottom_45">
+						<% for(var i=0;i<=course.modules.length-1;i++) {%> 
+							<div class="card">
+								<div class="card-header" role="tab" id="headingOne">
+									<h5 class="mb-0">
+										<a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="indicator ti-minus"></i><%= course.modules[i] %></a>
+									</h5>
+								</div>
+
+								<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion_lessons">
+									<div class="card-body">
+										<div class="list_lessons">
+											<ul>
+												<% for(var j=0;j<=course.videoCategory.length-1;j++) { %>
+													<% if(course.videoCategory[j] == course.modules[i]) {%>  
+														<li><a href="/images/uploads/<%= course.videoName[j] %>" class="video"><%= course.videoTitle[j] %></a><span></span></li>
+													<% } %> 
+												<% } %> 
+
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						<% } %> 
+
+						</div>
+						<!-- /accordion -->
+					</section>
+					<!-- /section -->
+					
+					<section id="reviews">
+						<h2>Reviews</h2>
+						<div class="reviews-container">
+							<div class="row">
+								<div class="col-lg-3">
+									<div id="review_summary">
+										<strong><%= rating.avg %></strong>
+										<div class="ratings">
+											<% for(var i=1;i<=5;i++) {%>
+												<% if(i<=Math.round(rating.avg)) {%>
+													<i class="icon_star voted"></i>													
+												<% }else{ %>
+												<i class="icon_star"></i>
+												<% } %> 
+											<% } %>  
+										</div>
+										<small>Based on <%= rating.tot %> reviews</small>
+									</div>
+								</div>
+								<div class="col-lg-9">
+									<div class="row">
+										<div class="col-lg-10 col-9">
+											<div class="progress">
+												<div class="progress-bar" role="progressbar"  aria-valuenow="<%= rating.r5 %>" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-3"><small><strong>5 stars</strong></small></div>
+									</div>
+									<!-- /row -->
+									<div class="row">
+										<div class="col-lg-10 col-9">
+											<div class="progress">
+												<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-3"><small><strong>4 stars</strong></small></div>
+									</div>
+									<!-- /row -->
+									<div class="row">
+										<div class="col-lg-10 col-9">
+											<div class="progress">
+												<div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-3"><small><strong>3 stars</strong></small></div>
+									</div>
+									<!-- /row -->
+									<div class="row">
+										<div class="col-lg-10 col-9">
+											<div class="progress">
+												<div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-3"><small><strong>2 stars</strong></small></div>
+									</div>
+									<!-- /row -->
+									<div class="row">
+										<div class="col-lg-10 col-9">
+											<div class="progress">
+												<div class="progress-bar" role="progressbar" style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-3"><small><strong>1 stars</strong></small></div>
+									</div>
+									<!-- /row -->
+								</div>
+							</div>
+							<!-- /row -->
+						</div>
+
+						<hr>
+
+						<div class="reviews-container">
+						<% for(var i=0;i<=reviews.review.length-1;i++) {%> 
+							<div class="review-box clearfix">
+								<figure class="rev-thumb"><img src="http://via.placeholder.com/150x150/ccc/fff/avatar1.jpg" alt="">
+								</figure>
+								<div class="rev-content">
+									<div class="ratings">
+										<% for(var j=1;j<=5;j++) {%>
+											<% if(j<=reviews.review[i].rating) {%>
+												<i class="icon_star voted"></i>													
+											<% }else{ %>
+											<i class="icon_star"></i>
+											<% } %> 
+										<% } %>   
+										<!-- <i class="icon_star voted"></i> -->
+									</div>
+									<div class="rev-info">
+										<%= reviews.review[i].user.firstName %> <%= reviews.review[i].user.lastName %> 
+									</div>
+									<div class="rev-text">
+										<p>
+											<%= reviews.review[i].comment %> 
+										</p>
+									</div>
+								</div>
+							</div>
+						<% } %> 
+						</div>
+						<!-- /review-container -->
+					<form action="/course-detail/<%= course.id %>" method="post">
+						<div class="form-group">
+							<h5>Add a review</h5>
+							<fieldset class="rating">
+								<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5"></label>
+								<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4"></label>
+								<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3"></label>
+								<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2"></label>
+								<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1"></label>
+							</fieldset>
+							<textarea type="text" name="comment" class="form-control"></textarea>
+
+						</div>
+						<button type="submit" class="btn_1 medium">Save</button>
+					</form>
+					</section>
+					<!-- /section -->
+				</div>
+				<!-- /col -->
+				
+				<aside class="col-lg-4" id="sidebar">
+					<div class="box_detail">
+						<figure>
+							<a href="https://www.youtube.com/watch?v=LDgd_gUcqCw" class="video"><i class="arrow_triangle-right"></i><img src="http://via.placeholder.com/800x533/ccc/fff/course_1.jpg" alt="" class="img-fluid"><span>View course preview</span></a>
+						</figure>
+						<!-- <a href="cart-1.html" class="btn_1 full-width">Purchase</a> -->
+						<a href="#0" class="btn_1 full-width outline"><i class="icon_heart"></i> Add to wishlist</a>
+						<div id="list_feat">
+							<h3>What's includes</h3>
+							<ul>
+								<li><i class="icon_mobile"></i>Mobile support</li>
+								<li><i class="icon_archive_alt"></i>Lesson archive</li>
+								<li><i class="icon_mobile"></i>Mobile support</li>
+								<li><i class="icon_chat_alt"></i>Tutor chat</li>
+								<li><i class="icon_document_alt"></i>Course certificate</li>
+							</ul>
+						</div>
+					</div>
+				</aside>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /bg_color_1 -->
+</main>

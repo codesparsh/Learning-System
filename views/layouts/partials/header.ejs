@@ -1,0 +1,22 @@
+<header class="header fadeInDown">
+    <div id="logo">
+        <a href="index.html"><img src="/img/logo.png" width="149" height="42" data-retina="true" alt=""></a>
+    </div>
+    <ul id="top_menu">
+        <% if(isAuth == true) {%>
+        <li><a href="/dashboard" class="login">Dashboard</a></li>
+        <% }else{ %>       
+        <li><a href="/login" class="login">Login</a></li>
+        <% } %> 
+        <li><a href="#0" class="search-overlay-menu-btn">Search</a></li>
+        <li class="hidden_tablet"><a href="/admission" class="btn_1 rounded">Admission</a></li>
+        <li>
+            <div class="hamburger hamburger--spin">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <!-- /top_menu -->
+</header>

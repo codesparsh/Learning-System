@@ -1,0 +1,178 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+	  <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Add listing</li>
+	  </ol>
+	<form action="/admin/add-listing" method="post" enctype="multipart/form-data">
+	  
+		<div class="box_general padding_bottom">
+			<div class="header_box version_2">
+				<h2><i class="fa fa-file"></i>Basic info</h2>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Course title</label>
+						<input type="text" class="form-control" name="titleMain" placeholder="Course title">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Type</label>
+						<select name="type" class="form-control">
+							<option>Select</option>
+							<option>Common</option>
+							<option>Featured</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<!-- /row
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Course start</label>
+						<input type="date" name="courseStart" class="form-control date-pick" placeholder="Course start">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Course expire</label>
+						<input type="date" name="courseEnd" class="form-control date-pick" placeholder="Course end">
+					</div>
+				</div>
+			</div> -->
+			<!-- /row-->
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Teacher name</label>
+						<input type="text" class="form-control" name="teacherName" placeholder="Course teacher">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Course picture</label>
+						<input  type="file"  name="coursePicture" accept="image/*" class="form-control"/>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- /box_general-->
+		
+		<div class="box_general padding_bottom">
+			<div class="header_box version_2">
+				<h2><i class="fa fa-file-text"></i>Description</h2>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Course description</label>
+						<textarea rows="5" class="form-control" name="courseDescription" style="height:100px;" placeholder="Description"></textarea>
+					</div>
+				</div>
+			</div>
+			<!-- /row-->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Category <a href="#0" data-toggle="tooltip" data-placement="top" title="Separated by commas"><i class="fa fa-fw fa-question-circle"></i></a></label>
+						<select type="text" class="form-control" name="category" placeholder="Ex: Science, Biology...">
+						<% for(var i=0;i<=categories.length-1;i++) {%>
+							<option><%= categories[i].category %></option>
+						<% } %>  
+						</select>
+					</div>
+				</div>
+			</div>
+			<!-- /row-->
+		</div>
+		<!-- /box_general-->
+		<div class="box_general padding_bottom">
+			<div class="header_box version_2">
+				<h2><i class="fa fa-video-camera"></i>What will you learn</h2>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h6>Item</h6>
+					<table id="learn-list-container" style="width:100%;">
+						<tr class="learn-list-item">
+							<td>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<input type="text" class="form-control" name="itemTitle" placeholder="Title">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<textarea rows="5" class="form-control" name="itemDescription" style="height:100px;" placeholder="Description"></textarea>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<a class="delete" href="#"><i class="fa fa-fw fa-remove"></i></a>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<a href="#0" class="btn_1 gray add-learn-list-item"><i class="fa fa-fw fa-plus-circle"></i>Add Item</a>
+					</div>
+			</div>
+			<!-- /row-->
+		</div>
+		
+		<div class="box_general padding_bottom">
+			<div class="header_box version_2">
+				<h2><i class="fa fa-video-camera"></i>Videos</h2>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h6>Item</h6>
+					<table id="pricing-list-container" style="width:100%;">
+						<tr class="pricing-list-item">
+							<td>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<input type="text" class="form-control" name="videoTitle" placeholder="Video title">
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<input type="text" class="form-control" name="videoCategory" placeholder="Video category">
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<input  type="file"  name="video" class="form-control"/>
+										</div>
+									</div>
+									<div class="col-md-2">
+										<div class="form-group">
+											<a class="delete" href="#"><i class="fa fa-fw fa-remove"></i></a>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<a href="#0" class="btn_1 gray add-pricing-list-item"><i class="fa fa-fw fa-plus-circle"></i>Add Item</a>
+					</div>
+			</div>
+			<!-- /row-->
+		</div>
+		<!-- /box_general-->
+		<button type="submit" class="btn_1 medium">Save</button>
+	</form>
+	</div>
+	  <!-- /.container-fluid-->
+</div>
+    <!-- /.container-wrapper-->

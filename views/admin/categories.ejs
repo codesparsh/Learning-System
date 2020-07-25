@@ -1,0 +1,83 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">All Categories</li>
+      </ol>
+      <div class="box_general padding_bottom">
+        <div class="header_box version_2">
+            <h2><i class="fa fa-file"></i>Add Category</h2>
+        </div>
+    <form autocomplete="off" action="/admin/categories" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Course category</label>
+                    <input type="text" class="form-control" name="category" placeholder="Category">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                <label>Course image</label>
+                <input  type="file"  name="image" class="form-control" required/>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary" >Create New</button>
+            </div>
+        </div>
+    </form>
+
+    </div>
+		<div class="box_general">
+			<div class="header_box">
+				<h2 class="d-inline-block">All Categories</h2>
+			</div>     
+            <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="col-md-1">Id</th>
+                    <th class="col-md-5">Category</th>
+                    <th class="col-md-2">Image</th>
+                    <th class="col-md-2">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+            <% for(var i=0;i<=categories.length-1;i++) {%> 
+                <tr>
+                    <td><%= i+1 %></td>
+                    <td><%= categories[i].category %></td>
+                    <td><img class="img-fluid" src="/images/uploads/<%= categories[i].image %>" alt=""></td>
+                    <td class="text-center">
+                        <a href="/admin/categories/delete/<%= categories[i].id %>" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Delete</a>
+                    </td>
+
+                </tr>
+            <% } %> 
+                </tbody>
+            </table>
+            </div>
+		</div>
+		<!-- /box_general-->
+		<!-- <nav aria-label="...">
+			<ul class="pagination pagination-sm add_bottom_30">
+				<li class="page-item disabled">
+					<a class="page-link" href="#" tabindex="-1">Previous</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#">Next</a>
+				</li>
+			</ul>
+		</nav> -->
+		<!-- /pagination-->
+	</div>
+	  <!-- /container-fluid-->
+</div>
+    <!-- /container-wrapper-->

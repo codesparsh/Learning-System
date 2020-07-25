@@ -1,0 +1,124 @@
+<body id="register_bg">
+	
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+	
+	<div id="login">
+		<aside>
+			<figure>
+				<a href="index.html"><img src="/img/logo.png" width="149" height="42" data-retina="true" alt=""></a>
+			</figure>
+			<form autocomplete="off" action="/register" method="POST">
+				<div class="form-group">
+
+					<span class="input">
+					<input class="input_field" name="firstName" type="text">
+						<label class="input_label">
+						<span class="input__label-content">Your First Name</span>
+					</label>
+					</span>
+
+					<span class="input">
+					<input class="input_field" name="lastName" type="text">
+						<label class="input_label">
+						<span class="input__label-content">Your Last Name</span>
+					</label>
+					</span>
+
+					<span class="input">
+					<input class="input_field" name="email" type="email">
+						<label class="input_label">
+						<span class="input__label-content">Your Email</span>
+					</label>
+					</span>
+
+					<span class="input">
+					<input class="input_field" type="password" name="password" id="password1">
+						<label class="input_label">
+						<span class="input__label-content">Your password</span>
+					</label>
+					</span>
+
+					<div class="form-group select" id="accountType">
+						<div class="styled-select">
+							<select class="required" name="accountType" id="accountVal">
+								<option>Select</option>
+								<option>Company</option>
+								<option>Employee</option>
+							</select>
+						</div>
+					</div>
+					
+					
+					<span class="input" id="company">
+						<input class="input_field" name="company" type="text">
+							<label class="input_label">
+							<span class="input__label-content">Company</span>
+						</label>
+					</span>
+
+					<span class="input" id="companyCode">
+						<input class="input_field" name="companyCode" type="text">
+							<label class="input_label">
+							<span class="input__label-content">Company Code</span>
+						</label>
+					</span>
+
+					<div class="form-group select" id="role">
+						<div class="styled-select">
+							<select class="required" name="role" id="education_apply">
+								<option value="">Select</option>
+								<option>1st priority</option>
+								<option>2nd priority</option>
+								<option>3rd priority</option>
+								<option>4th priority</option>
+								<option>5th priority</option>
+							</select>
+						</div>
+					</div>
+					<div id="pass-info" class="clearfix"></div>
+				</div>
+				<button type="submit" class="btn_1 rounded full-width add_top_30">Register to Udema</button>
+				<div class="text-center add_top_10">Already have an acccount? <strong><a href="/login">Sign In</a></strong></div>
+			</form>
+		</aside>
+	</div>
+	<!-- /login -->
+	
+	<!-- COMMON SCRIPTS -->
+    <script src="/js/jquery-2.2.4.min.js"></script>
+    <script src="/js/common_scripts.js"></script>
+    <script src="/js/main.js"></script>
+	<script src="/assets/validate.js"></script>
+	
+	<!-- SPECIFIC SCRIPTS -->
+	<script src="/js/pw_strenght.js"></script>
+	<script>
+		 $(document).ready(function(){
+                $(function() {
+                    $('#company').hide(); 
+                    $('#companyCode').hide(); 
+                    $('#role').hide(); 
+                    $('#accountVal').change(function(){
+                        if($('#accountVal').val() == 'Company') {
+                            $('#company').show(); 
+                            $('#role').hide();  
+                            $('#companyCode').hide();  
+                        } 
+                        else if($('#accountVal').val() == 'Employee'){
+                            $('#company').hide(); 
+                            $('#companyCode').show(); 
+                            $('#role').show(); 
+						}
+						else if($('#accountVal').val() == 'Select'){
+                            $('#company').hide(); 
+                            $('#companyCode').hide(); 
+                            $('#role').hide(); 
+                        }
+                    });
+                });
+            }); 
+	</script> 
+</body>

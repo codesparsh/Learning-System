@@ -1,0 +1,69 @@
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">All Courses</li>
+      </ol>
+		<div class="box_general">
+			<div class="header_box">
+				<h2 class="d-inline-block">All Courses</h2>
+				<div class="filter">
+					<select name="orderby" class="selectbox">
+						<option value="Any status">Any status</option>
+						<option value="Approved">Started</option>
+						<option value="Pending">Pending</option>
+						<option value="Cancelled">Cancelled</option>
+					</select>
+				</div>
+			</div>
+			<div class="list_general">
+				<ul>
+				<% for(var i=0;i<=courses.length-1;i++){ %> 
+					<li>
+						<figure><img src="/images/uploads/<%= courses[i].coursePicture %>" alt=""></figure>
+						<h4><%= courses[i].title %>
+						<% if(courses[i].approved == false) {%>
+							<i class="pending">Pending</i>	
+						<% } %> 
+						</h4>
+						<ul class="course_list">
+							<!-- <li><strong>Title</strong></li> -->
+							<li><strong>Type</strong><%= courses[i].type %></li>
+							<li><strong>Category</strong><%= courses[i].category %></li>
+							<li><strong>Teacher</strong><%= courses[i].teacherName %></li>
+						</ul>
+						<h6>Course description</h6> 
+						<p><%= courses[i].courseDescription %></p>
+						<ul class="buttons">
+							<% if(courses[i].approved == false) {%>
+							<li><a href="/admin/courses/approve/<%= courses[i].id %>" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+							<% } %> 
+							<li><a href="/admin/courses/delete/<%= courses[i].id %>" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Delete</a></li>
+						</ul>
+					</li>
+				<% } %> 
+				</ul>
+			</div>
+		</div>
+		<!-- /box_general-->
+		<nav aria-label="...">
+			<ul class="pagination pagination-sm add_bottom_30">
+				<li class="page-item disabled">
+					<a class="page-link" href="#" tabindex="-1">Previous</a>
+				</li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item">
+					<a class="page-link" href="#">Next</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- /pagination-->
+	</div>
+	  <!-- /container-fluid-->
+</div>
+    <!-- /container-wrapper-->
